@@ -14,8 +14,8 @@ class StoreRequest extends BaseRequest
     public function rules()
     {
         return [
-            'from' => 'required|numeric',
-            'to' => 'required|numeric',
+            'from' => 'required|numeric|exists:accounts,id|different:to',
+            'to' => 'required|numeric|exists:accounts,id|different:from',
             'details' => 'required|string',
             'amount' => 'required|numeric'
         ];
