@@ -18,7 +18,7 @@ class Account extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'balance' => $this->balance,
-            'owner' => $this->user->name
+            'owner' => $this->owner->name
         ];
     }
 }
