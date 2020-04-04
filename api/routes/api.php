@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
   |
 */
 
-Route::get('/currencies', ['as' => 'currencies.list', 'uses' => 'CurrenciesController@index']);
+Route::get('/currencies', ['as' => 'currencies.list', 'uses' => 'CurrencyController@index']);
 
 Route::prefix('accounts')->group(function () {
     Route::get('/', ['as' => 'accounts.list', 'uses' => 'AccountController@index']);
