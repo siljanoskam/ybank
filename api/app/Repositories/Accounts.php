@@ -50,7 +50,8 @@ class Accounts extends Repository
             Log::error(
                 'Something went wrong while storing the account into the database',
                 [
-                    'message' => $exception->getMessage()
+                    'message' => $exception->getMessage(),
+                    'data' => $data
                 ]
             );
             $error = true;
@@ -71,7 +72,8 @@ class Accounts extends Repository
             Log::error(
                 'Something went wrong while getting the account from the database',
                 [
-                    'message' => $exception->getMessage()
+                    'message' => $exception->getMessage(),
+                    'id' => $id
                 ]
             );
             $error = true;
@@ -92,7 +94,9 @@ class Accounts extends Repository
             Log::error(
                 'Something went wrong while updating the account into the database',
                 [
-                    'message' => $exception->getMessage()
+                    'message' => $exception->getMessage(),
+                    'id' => $id,
+                    'data' => $data
                 ]
             );
             $error = true;
@@ -112,7 +116,8 @@ class Accounts extends Repository
             Log::error(
                 'Something went wrong while removing the account from the database',
                 [
-                    'message' => $exception->getMessage()
+                    'message' => $exception->getMessage(),
+                    'id' => $id
                 ]
             );
             $error = true;
