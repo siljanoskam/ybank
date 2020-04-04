@@ -13,7 +13,7 @@ trait ModelOperations
 
     protected function getAllWhere(Model $model, string $field, string $operator, $value)
     {
-        return $model->where($field, $operator, $value);
+        return $model->where($field, $operator, $value)->get();
     }
 
     protected function storeModelItem(Model $model, $data)
