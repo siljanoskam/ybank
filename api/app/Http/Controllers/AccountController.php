@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\AdminPanel;
+namespace App\Http\Controllers;
 
 use App\Enums\ErrorCodes;
 use App\Http\Controllers\Controller;
