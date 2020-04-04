@@ -2,7 +2,6 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Account;
 use App\Transaction;
 use Faker\Generator as Faker;
 
@@ -19,11 +18,11 @@ use Faker\Generator as Faker;
 
 $factory->define(Transaction::class, function (Faker $faker) {
     return [
-        'from' => $faker->numberBetween([1, 3]),
-        'to' => $faker->numberBetween([4, 6]),
+        'from' => $faker->numberBetween(1, 2),
+        'to' => $faker->numberBetween(1, 2),
         'details' => $faker->sentence,
         // i'm setting the range of the transactions amount to max=20000
         // so it doesn't exceed their possible account balance (which goes from 20000 to 50000)
-        'amount' => $faker->numberBetween([1, 20000])
+        'amount' => $faker->numberBetween(1, 10000)
     ];
 });
