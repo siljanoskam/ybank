@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Account extends Model
 {
+    protected $fillable = [
+        'name',
+        'balance',
+        'user_id'
+    ];
+
     /**
      * Returns the transactions of the account
      *

@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Transaction extends Model
 {
+    protected $fillable = [
+        'from',
+        'to',
+        'details',
+        'amount'
+    ];
+
     /**
      * Returns the sender account of the transaction
      *
