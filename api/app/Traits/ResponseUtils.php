@@ -44,7 +44,7 @@ trait ResponseUtils
     }
 
     /**
-     * A helper method for success that returns lists
+     * A helper method for success response that returns lists
      *
      * @param array $data
      * @return JsonResponse
@@ -59,7 +59,7 @@ trait ResponseUtils
     }
 
     /**
-     * A helper method for success that returns a single item
+     * A helper method for success response that returns a single item
      *
      * @param mixed $data
      * @return JsonResponse
@@ -74,7 +74,7 @@ trait ResponseUtils
     }
 
     /**
-     * A helper method for success that returns empty response
+     * A helper method for success response that returns empty response
      *
      * @return JsonResponse
      */
