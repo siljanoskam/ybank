@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\AdminPanel;
 
+use App\Enums\ErrorCodes;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Accounts\StoreRequest;
 use App\Http\Requests\Api\Accounts\UpdateRequest;
@@ -81,7 +82,8 @@ class AccountController extends Controller
 
         if ($accountFetch->hasError()) {
             return $this->errorResponse(
-                $accountFetch->getErrorMessage()
+                $accountFetch->getErrorMessage(),
+                ErrorCodes::STD400
             );
         }
 
