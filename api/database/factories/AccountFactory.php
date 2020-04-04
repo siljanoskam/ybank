@@ -19,6 +19,7 @@ use Faker\Generator as Faker;
 $factory->define(Account::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'balance' => $faker->numberBetween(20000, 50000)
+        'balance' => $faker->numberBetween(20000, 50000),
+        'user_id' => $faker->numberBetween(1, 5)
     ];
 });
