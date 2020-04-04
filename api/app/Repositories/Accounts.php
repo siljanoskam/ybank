@@ -16,7 +16,6 @@ class Accounts extends Repository
     public function __construct()
     {
         $this->model = new Account();
-
     }
 
     public function all(): Repository
