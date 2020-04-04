@@ -2,9 +2,11 @@
 
 namespace App\Repositories;
 
+use App\Enums\ErrorMessages;
 use App\Transaction;
 use App\Http\Resources\Transaction as TransactionResource;
 use App\Traits\ModelOperations;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class Transactions extends Repository
@@ -13,10 +15,12 @@ class Transactions extends Repository
 
     private $model;
 
+    protected $accountsRepository;
+
     public function __construct()
     {
         $this->model = new Transaction();
-
+        $this->accountsRepository = new Accounts();
     }
 
     public function all(): Repository
@@ -116,9 +120,48 @@ class Transactions extends Repository
 
     public function store($data): Repository
     {
+        DB::beginTransaction();
+
         try {
-            $transaction = $this->storeModelItem($this->model, $data);
-            $singleItem = new TransactionResource($transaction);
+            $senderAccount =
+                $this
+                    ->accountsRepository
+                    ->show($data['from'])
+                    ->getItems();
+
+            $receiverAccount =
+                $this
+                    ->accountsRepository
+                    ->show($data['to'])
+                    ->getItems();
+
+            // We check if the sender account has enough big balance to do the current transaction
+            if ($senderAccount->balance - $data['amount'] >= 0) {
+                $transaction = $this->storeModelItem($this->model, $data);
+
+                // We update the sender account balance
+                // By subtracting the transaction amount from their balance
+                $this
+                    ->accountsRepository
+                    ->update($senderAccount->id, [
+                        'balance' => $senderAccount->balance - $transaction->amount
+                    ]);
+
+                // We update the receiver account balance
+                // By increasing their balance with the amount of the transaction
+                $this
+                    ->accountsRepository
+                    ->update($receiverAccount->id, [
+                        'balance' => $receiverAccount->balance + $transaction->amount
+                    ]);
+
+                $singleItem = new TransactionResource($transaction);
+            } else {
+                $error = true;
+                $errorMessage = ErrorMessages::LOW_BALANCE;
+            }
+
+            DB::commit();
         } catch (\Exception $exception) {
             Log::error(
                 'Something went wrong while storing the transaction into the database',
@@ -128,6 +171,7 @@ class Transactions extends Repository
                 ]
             );
             $error = true;
+            DB::rollBack();
         }
 
         return (new Repository())
