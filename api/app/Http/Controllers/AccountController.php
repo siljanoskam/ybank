@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Enums\ErrorCodes;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\Accounts\StoreRequest;
-use App\Http\Requests\Api\Accounts\UpdateRequest;
+use App\Http\Requests\Accounts\StoreRequest;
+use App\Http\Requests\Accounts\UpdateRequest;
 use App\Repositories\Accounts;
 use App\Traits\ResponseUtils;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {

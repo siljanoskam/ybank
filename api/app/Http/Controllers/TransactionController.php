@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\ErrorCodes;
-use App\Http\Requests\Api\Accounts\StoreRequest;
+use App\Http\Requests\Accounts\StoreRequest;
 use App\Repositories\Transactions;
 use App\Traits\ResponseUtils;
 use Illuminate\Http\JsonResponse;
