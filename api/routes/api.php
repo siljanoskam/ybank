@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +22,12 @@ Route::prefix('accounts')->group(function () {
     Route::put('/{id}', ['as' => 'accounts.update', 'uses' => 'AccountController@update']);
     Route::delete('/{id}', ['as' => 'accounts.destroy', 'uses' => 'AccountController@destroy']);
 
-    Route::get('/{id}/transactions', ['as' => 'account.transactions', 'uses' => 'AccountController@getTransactions']);
-    Route::post('/{id}/transactions', ['as' => 'account.transactions', 'uses' => 'AccountController@makeTransaction']);
+    Route::get('/{id}/transactions', ['as' => 'account-transactions', 'uses' => 'TransactionController@getAllTransactions']);
+    Route::get('/{id}/transactions-made', ['as' => 'account-transactions-made', 'uses' => 'TransactionController@getMadeTransactionsByAccount']);
+    Route::get('/{id}/transactions-received', ['as' => 'account-transactions-received', 'uses' => 'TransactionController@getReceivedTransactionsByAccount']);
+    Route::post('/{id}/transactions', ['as' => 'account-transactions.store', 'uses' => 'TransactionController@store']);
+});
+
+Route::prefix('transactions')->group(function () {
+    Route::get('/', ['as' => 'transactions.list', 'uses' => 'TransactionController@index']);
 });
