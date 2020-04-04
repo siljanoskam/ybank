@@ -11,19 +11,24 @@ trait ModelOperations
         return $model->all();
     }
 
+    protected function getAllWhere(Model $model, string $field, string $operator, $value)
+    {
+        return $model->where($field, $operator, $value);
+    }
+
     protected function storeModelItem(Model $model, $data)
     {
         return $model->create($data);
     }
 
-    protected function showModelItem(Model $model, $id)
+    protected function findModelItem(Model $model, $id)
     {
         return $model->findOrFail($id);
     }
 
     protected function updateModelItem(Model $model, $id, $data)
     {
-        $item = $this->showModelItem($model, $id);
+        $item = $this->findModelItem($model, $id);
 
         $item->update($data);
 
@@ -32,7 +37,7 @@ trait ModelOperations
 
     protected function destroyModelItem(Model $model, $id)
     {
-        $item = $this->showModelItem($model, $id);
+        $item = $this->findModelItem($model, $id);
 
         return $item->delete();
     }
