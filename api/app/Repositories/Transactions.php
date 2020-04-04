@@ -46,9 +46,10 @@ class Transactions extends Repository
         try {
             $transactions =
                 $this
-                    ->getAllModelItems($this->model)
+                    ->model
                     ->where('from', '=', $accountId)
-                    ->orWhere('to', '=', $accountId);
+                    ->orWhere('to', '=', $accountId)
+                    ->get();
             $transactionsList = TransactionResource::collection($transactions);
         } catch (\Exception $exception) {
             Log::error(
