@@ -1,5 +1,6 @@
 <?php
 
+use App\Account;
 use Illuminate\Database\Seeder;
 
 class AccountsTableSeeder extends Seeder
@@ -11,14 +12,6 @@ class AccountsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('accounts')->insert([
-            'name' => 'John',
-            'balance' => 15000
-        ]);
-
-        DB::table('accounts')->insert([
-            'name' => 'Peter',
-            'balance' => 100000
-        ]);
+        factory(Account::class, 2)->create();
     }
 }
