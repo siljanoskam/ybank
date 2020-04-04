@@ -15,8 +15,7 @@ class UpdateRequest extends BaseRequest
     {
         return [
             'name' => 'required|string',
-            'balance' => 'required|numeric',
-            'user_id' => 'required|numeric'
+            'balance' => 'required|numeric'
         ];
     }
 }
