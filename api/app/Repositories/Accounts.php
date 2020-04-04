@@ -65,7 +65,7 @@ class Accounts extends Repository
     public function show($id): Repository
     {
         try {
-            $account = $this->showModelItem($this->model, $id);
+            $account = $this->findModelItem($this->model, $id);
             $singleItem = new AccountResource($account);
         } catch (\Exception $exception) {
             Log::error(
