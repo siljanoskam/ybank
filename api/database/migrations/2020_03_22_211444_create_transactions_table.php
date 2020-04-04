@@ -19,6 +19,7 @@ class CreateTransactionsTable extends Migration
             $table->bigInteger('to')->unsigned();
             $table->text('details');
             $table->float('amount');
+            $table->timestamps();
 
             $table
                 ->foreign('from')
