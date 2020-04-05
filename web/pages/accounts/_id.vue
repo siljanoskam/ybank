@@ -92,7 +92,7 @@
       };
     },
 
-    async asyncData(ctx) {
+    async asyncData(ctx: any) {
       const account = await axios({
         method: 'get',
         url: `http://localhost:5000/api/accounts/${ctx.route.params.id}`
@@ -117,10 +117,10 @@
 
     methods: {
       makeTransaction() {
-        const from = this.account.id;
-        const to = parseInt(this.payment.to, 10);
-        const details = this.payment.details;
-        const amount = this.payment.amount;
+        const from = (this as any).account.id;
+        const to = (this as any).payment.to;
+        const details = (this as any).payment.details;
+        const amount = (this as any).payment.amount;
         const data = new FormData();
 
         data.append('from', from);
