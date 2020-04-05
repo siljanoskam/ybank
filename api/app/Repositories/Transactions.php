@@ -161,6 +161,7 @@ class Transactions extends Repository
             } else {
                 $error = true;
                 $errorMessage = ErrorMessages::LOW_BALANCE;
+                DB::rollBack();
             }
         } catch (\Exception $exception) {
             Log::error(
