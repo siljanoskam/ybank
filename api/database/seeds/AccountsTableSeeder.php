@@ -1,6 +1,6 @@
 <?php
 
-use App\Account;
+use App\Models\Account;
 use Illuminate\Database\Seeder;
 
 class AccountsTableSeeder extends Seeder

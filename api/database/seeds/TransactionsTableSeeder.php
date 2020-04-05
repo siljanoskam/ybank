@@ -1,6 +1,6 @@
 <?php
 
-use App\Transaction;
+use App\Models\Transaction;
 use Illuminate\Database\Seeder;
 
 class TransactionsTableSeeder extends Seeder
