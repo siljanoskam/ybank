@@ -1,7 +1,7 @@
 # README
 
 ## Description
-This is a repository where we keep the code for the `API` of the **YBANK** project
+This is where we keep the code for the `API` of the **YBANK** project
 
 ## Get started
 
