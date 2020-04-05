@@ -108,8 +108,8 @@
       });
 
       return {
-        account: account,
-        transactions: transactions,
+        account,
+        transactions,
         loading: false,
         show: true
       }
