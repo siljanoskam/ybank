@@ -156,12 +156,12 @@ class Transactions extends Repository
                     ]);
 
                 $singleItem = new TransactionResource($transaction);
+
+                DB::commit();
             } else {
                 $error = true;
                 $errorMessage = ErrorMessages::LOW_BALANCE;
             }
-
-            DB::commit();
         } catch (\Exception $exception) {
             Log::error(
                 'Something went wrong while storing the transaction into the database',
