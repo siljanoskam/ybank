@@ -20,6 +20,7 @@ $factory->define(Account::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'balance' => $faker->numberBetween(20000, 50000),
+        'currency_id' => $faker->randomElement([5, 11]),
         'user_id' => $faker->numberBetween(1, 5)
     ];
 });
