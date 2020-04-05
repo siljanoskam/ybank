@@ -17,8 +17,14 @@ class CreateAccountsTable extends Migration
             $table->id();
             $table->text('name');
             $table->float('balance');
+            $table->bigInteger('currency_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
+
+            $table
+                ->foreign('currency_id')
+                ->references('id')
+                ->on('currencies');
 
             $table
                 ->foreign('user_id')
