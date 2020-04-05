@@ -75,7 +75,16 @@ class Transactions extends Repository
     public function allMadeTransactionsByAccount($accountId): Repository
     {
         try {
-            $transactions = $this->getAllWhere($this->model, 'from', '=', $accountId);
+            $account =
+                $this
+                    ->accountsRepository
+                    ->show($accountId);
+
+            $transactions =
+                $account
+                    ->getItems()
+                    ->transactionsMade;
+
             $transactionsList = TransactionResource::collection($transactions);
         } catch (\Exception $exception) {
             Log::error(
@@ -98,7 +107,16 @@ class Transactions extends Repository
     public function allReceivedTransactionsByAccount($accountId): Repository
     {
         try {
-            $transactions = $this->getAllWhere($this->model, 'to', '=', $accountId);
+            $account =
+                $this
+                    ->accountsRepository
+                    ->show($accountId);
+
+            $transactions =
+                $account
+                    ->getItems()
+                    ->transactionsReceived;
+
             $transactionsList = TransactionResource::collection($transactions);
         } catch (\Exception $exception) {
             Log::error(
