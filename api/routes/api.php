@@ -22,12 +22,13 @@ Route::prefix('accounts')->group(function () {
     Route::put('/{id}', ['as' => 'accounts.update', 'uses' => 'AccountController@update']);
     Route::delete('/{id}', ['as' => 'accounts.destroy', 'uses' => 'AccountController@destroy']);
 
-    Route::get('/{id}/transactions', ['as' => 'account-transactions', 'uses' => 'TransactionController@getAllTransactions']);
-    Route::get('/{id}/transactions-made', ['as' => 'account-transactions-made', 'uses' => 'TransactionController@getMadeTransactionsByAccount']);
-    Route::get('/{id}/transactions-received', ['as' => 'account-transactions-received', 'uses' => 'TransactionController@getReceivedTransactionsByAccount']);
+    Route::get('/{id}/transactions', ['as' => 'account-transactions.list', 'uses' => 'TransactionController@getAllTransactionsByAccount']);
+    Route::get('/{id}/transactions-made', ['as' => 'account-transactions-made.list', 'uses' => 'TransactionController@getMadeTransactionsByAccount']);
+    Route::get('/{id}/transactions-received', ['as' => 'account-transactions-received.list', 'uses' => 'TransactionController@getReceivedTransactionsByAccount']);
 });
 
 Route::prefix('transactions')->group(function () {
     Route::get('/', ['as' => 'transactions.list', 'uses' => 'TransactionController@index']);
     Route::post('/', ['as' => 'transactions.store', 'uses' => 'TransactionController@store']);
+    Route::get('/{id}', ['as' => 'transactions.show', 'uses' => 'TransactionController@show']);
 });
