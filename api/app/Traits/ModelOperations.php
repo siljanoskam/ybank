@@ -11,11 +11,6 @@ trait ModelOperations
         return $model->all();
     }
 
-    protected function getAllWhere(Model $model, string $field, string $operator, $value)
-    {
-        return $model->where($field, $operator, $value)->get();
-    }
-
     protected function storeModelItem(Model $model, $data)
     {
         return $model->create($data);
