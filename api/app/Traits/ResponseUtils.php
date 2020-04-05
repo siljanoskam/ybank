@@ -2,12 +2,12 @@
 
 namespace App\Traits;
 
-use App\Http\Response\Std200ListResponse;
-use App\Http\Response\Std200Response;
-use App\Http\Response\Std400Response;
-use App\Http\Response\Std500Response;
-use App\Http\Response\StdEmptyResponse;
-use App\Http\Response\StdEmptyResponseInterface;
+use App\Http\Responses\Std200ListResponse;
+use App\Http\Responses\Std200Response;
+use App\Http\Responses\Std400Response;
+use App\Http\Responses\Std500Response;
+use App\Http\Responses\StdEmptyResponse;
+use App\Http\Responses\StdEmptyResponseInterface;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response as HttpStatusCode;
 

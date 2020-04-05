@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Response;
+namespace App\Http\Responses;
 
 /**
  * A response object used for lists

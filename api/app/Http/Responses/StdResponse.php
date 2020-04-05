@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Response;
+namespace App\Http\Responses;
 
 use Illuminate\Http\Response as HttpStatusCode;
 

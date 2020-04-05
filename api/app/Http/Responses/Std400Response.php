@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Response;
+namespace App\Http\Responses;
 
 use Illuminate\Http\Response as HttpStatusCode;
 
 /**
- * A response that will show the consumer the errors for a 500 response.
+ * A response that will show the consumer the errors.
  */
-class Std500Response extends StdResponse
+class Std400Response extends StdResponse
 {
     /**
-     * The status code for a standard 500 response.
+     * The status code for a standard 400 response.
      * @var int
      */
-    protected $statusCode = HttpStatusCode::HTTP_INTERNAL_SERVER_ERROR;
+    protected $statusCode = HttpStatusCode::HTTP_BAD_REQUEST;
 
     /**
      * The list of errors on the response
