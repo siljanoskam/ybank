@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\Account;
 use App\Http\Resources\Account as AccountResource;
+use App\Models\Account;
 use App\Traits\ModelOperations;
 use Illuminate\Support\Facades\Log;
 

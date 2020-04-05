@@ -3,8 +3,8 @@
 namespace App\Repositories;
 
 use App\Enums\ErrorMessages;
-use App\Transaction;
 use App\Http\Resources\Transaction as TransactionResource;
+use App\Models\Transaction;
 use App\Traits\ModelOperations;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;

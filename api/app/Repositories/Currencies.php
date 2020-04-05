@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\Currency;
 use App\Http\Resources\Currency as CurrencyResource;
+use App\Models\Currency;
 use App\Traits\ModelOperations;
 use Illuminate\Support\Facades\Log;
 
