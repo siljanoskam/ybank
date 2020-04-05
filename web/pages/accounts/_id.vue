@@ -86,10 +86,8 @@
       return {
         show: false,
         payment: {},
-
         account: null,
         transactions: null,
-
         loading: true
       };
     },
