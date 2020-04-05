@@ -38,7 +38,7 @@ class AccountController extends Controller
             );
         }
 
-        return $this->successResponse($accountsFetch->getItems());
+        return $this->successListResponse($accountsFetch->getItems()->all());
     }
 
     /**

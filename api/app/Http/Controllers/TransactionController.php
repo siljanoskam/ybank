@@ -37,7 +37,7 @@ class TransactionController extends Controller
             );
         }
 
-        return $this->successResponse($transactionsFetch->getItems());
+        return $this->successListResponse($transactionsFetch->getItems()->all());
     }
 
     /**
@@ -47,7 +47,7 @@ class TransactionController extends Controller
      *
      * @return JsonResponse
      */
-    public function getAllTransactions($accountId): JsonResponse
+    public function getAllTransactionsByAccount($accountId): JsonResponse
     {
         $transactionsFetch =
             $this
@@ -60,7 +60,7 @@ class TransactionController extends Controller
             );
         }
 
-        return $this->successResponse($transactionsFetch->getItems());
+        return $this->successListResponse($transactionsFetch->getItems()->all());
     }
 
     /**
@@ -83,7 +83,7 @@ class TransactionController extends Controller
             );
         }
 
-        return $this->successResponse($transactionsFetch->getItems());
+        return $this->successListResponse($transactionsFetch->getItems()->all());
     }
 
     /**
@@ -106,7 +106,7 @@ class TransactionController extends Controller
             );
         }
 
-        return $this->successResponse($transactionsFetch->getItems());
+        return $this->successListResponse($transactionsFetch->getItems()->all());
     }
 
     /**
